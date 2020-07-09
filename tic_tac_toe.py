@@ -4,9 +4,13 @@ board = [
     ["", "", ""], 
     ["", "", ""]
     ]
+
+
 def place_piece(piece, row, col):
     board[row-1][col-1] = piece
-    print(board)
+    for i in range(len(board)):
+        print(board[i])
+
 def has_won_vertical():
     if board[0][0] == "X" and board[1][0] == "X" and board[2][0] == "X":
         print("Player1 won")
@@ -28,6 +32,7 @@ def has_won_vertical():
         return True
     else:
         return False
+
 def has_won_horizontal():
     for i in range(len(board)):
         if board[i].count("X") == 3:               
@@ -37,9 +42,11 @@ def has_won_horizontal():
             print("Player2 won")
             return True
     return False
+
 def tic_tac_toe():
     count = 1
-    while (has_won_vertical()==False or has_won_horizontal()==False):
+    won = False
+    while (won==False):
         if count % 2 == 1:
             choice = input("Where do you want to put down X? Format: X, row, col")
             placements = choice.split(",")
@@ -49,4 +56,7 @@ def tic_tac_toe():
             placements = choice.split(",")
             place_piece(placements[0], int(placements[1]), int(placements[2]))
         count+=1
+        won= has_won_vertical()
+        won = has_won_horizontal()
+    quit()
 tic_tac_toe()
