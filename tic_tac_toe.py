@@ -2,10 +2,12 @@ import random
 board = [
     ["", "", ""], 
     ["", "", ""], 
-    ["", "", ""]]
+    ["", "", ""]
+    ]
 #player1 = input("What is Player 1's Name? ")
 #player2 = input("What is Player 2's Name? ")
 count = 1
+
 def tic_tac_toe():
     turn = random.random()
     if turn > 0.5:
@@ -23,7 +25,7 @@ def tic_tac_toe():
         choice = input("Where do you want to put down O? Format: O, row, col")
         placements = choice.split(",")
         place_piece(placements[0], int(placements[1]), int(placements[2]))
-    count++
+    count+=1
 
 
 
